@@ -7,10 +7,10 @@ export default class Paged<T> {
   @ApiProperty({ description: '总数' })
   Total: number;
 
-  public static From<T>(args: [T[], number]): Paged<T> {
+  public static From<T>([Data, Count]: [T[], number]): Paged<T> {
     return {
-      Data: args[0],
-      Total: args[1],
+      Data: Data,
+      Total: Count,
     };
   }
 }

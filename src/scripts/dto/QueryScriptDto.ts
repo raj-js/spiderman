@@ -7,8 +7,6 @@ export default class QueryScriptDto extends Pager<Script> {
     super();
     this.Order = {
       Id: 'ASC',
-      Name: 'DESC',
-      IsDeleted: 'ASC',
     };
   }
 

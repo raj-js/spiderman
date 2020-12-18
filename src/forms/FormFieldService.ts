@@ -3,9 +3,10 @@ import { CURServiceBase } from 'src/core/CURLServiceBase';
 import { Form, FormField } from 'src/core/entities';
 import { Repository } from 'typeorm';
 import CreateFormFieldDto from './dto/CreateFormFieldDto';
-import SaveFormFieldsDto from './dto/SaveFormFieldsDto';
+import CreateFormFieldsDto from './dto/CreateFormFieldsDto';
 import FormFieldDto from './dto/FormFieldDto';
 import UpdateFormFieldDto from './dto/UpdateFormFieldDto';
+import UpdateFormFieldsDto from './dto/UpdateFormFieldsDto';
 
 export default class FormFieldService extends CURServiceBase<
   number,
@@ -32,7 +33,7 @@ export default class FormFieldService extends CURServiceBase<
     return fields.map((v, _, __) => Object.assign(dto, v));
   }
 
-  async CreateFields(reqDto: SaveFormFieldsDto): Promise<FormFieldDto[]> {
+  async CreateFields(reqDto: CreateFormFieldsDto): Promise<FormFieldDto[]> {
     const formCount = await this.formRepository.count({
       Id: reqDto.FormId,
     });
@@ -40,5 +41,14 @@ export default class FormFieldService extends CURServiceBase<
 
     reqDto.Fields.forEach((v) => (v.FormId = reqDto.FormId));
     return this.CreateOrUpdateMultiple(reqDto.Fields);
+  }
+
+  async UpdateFields(reqDto: UpdateFormFieldsDto): Promise<FormFieldDto[]> {
+    let entities = reqDto.Fields.map((v) => Object.assign({} as FormField, v));
+    entities = await this.repository.save(entities, {
+      reload: true,
+      transaction: true,
+    });
+    return entities.map((v) => Object.assign({} as FormFieldDto, v));
   }
 }

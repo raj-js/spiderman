@@ -8,16 +8,9 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import {
-  ApiOkResponse,
-  ApiOperation,
-  ApiParam,
-  ApiProperty,
-  ApiTags,
-} from '@nestjs/swagger';
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import {
   ApiResponse,
-  NotFound,
   Success,
   SuccessOrFailed,
   SuccessOrNotFound,
@@ -25,11 +18,12 @@ import {
 import { Paged } from 'src/core/infrastructure/Paging';
 import { Like, Equal } from 'typeorm';
 import CreateFormDto from './dto/CreateFormDto';
-import SaveFormFieldsDto from './dto/SaveFormFieldsDto';
+import CreateFormFieldsDto from './dto/CreateFormFieldsDto';
 import FormDto from './dto/FormDto';
 import FormFieldDto from './dto/FormFieldDto';
 import QueryFormDto from './dto/QueryFormDto';
 import UpdateFormDto from './dto/UpdateFormDto';
+import UpdateFormFieldsDto from './dto/UpdateFormFieldsDto';
 import FormFieldService from './FormFieldService';
 import FormService from './FormService';
 
@@ -93,11 +87,19 @@ export default class FormController {
     return Success(await this.formFieldService.GetFields(id));
   }
 
-  @ApiOperation({ summary: '保存表单字段' })
+  @ApiOperation({ summary: '创建表单字段' })
   @Post('fields')
-  async SaveFormFields(
-    @Body() reqDto: SaveFormFieldsDto,
+  async CreateFormFields(
+    @Body() reqDto: CreateFormFieldsDto,
   ): Promise<ApiResponse<FormFieldDto[]>> {
     return SuccessOrNotFound(await this.formFieldService.CreateFields(reqDto));
+  }
+
+  @ApiOperation({ summary: '更新表单字段' })
+  @Put('fields')
+  async UpdateFormFields(
+    @Body() reqDto: UpdateFormFieldsDto,
+  ): Promise<ApiResponse<FormFieldDto[]>> {
+    return SuccessOrNotFound(await this.formFieldService.UpdateFields(reqDto));
   }
 }

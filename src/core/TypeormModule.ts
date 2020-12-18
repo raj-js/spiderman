@@ -9,7 +9,7 @@ import {
   TaskExecutionInput,
   TaskExecutionLog,
   TaskExecutionOutput,
-} from './core/entities';
+} from './entities';
 
 export const ormModule: DynamicModule = TypeOrmModule.forRoot({
   type: 'mysql',

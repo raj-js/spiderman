@@ -25,8 +25,8 @@ import CreateScriptDto from './dto/CreateScriptDto';
 import ScriptDto from './dto/ScriptDto';
 import UpdateScriptDto from './dto/UpdateScriptDto';
 import QueryScriptDto from './dto/QueryScriptDto';
-import Paged from 'src/core/infrastructure/Paged';
 import { Equal, Like } from 'typeorm';
+import { Paged } from 'src/core/infrastructure/Paging';
 
 @ApiTags('脚本')
 @Controller('script')

@@ -1,11 +1,8 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiHideProperty, ApiProperty } from '@nestjs/swagger';
 import { FormFieldType } from 'src/core/infrastructure/FormFieldType';
 
-export default class FormFieldDto {
-  @ApiProperty({ description: '字段ID' })
-  Id: number;
-
-  @ApiProperty({ description: '表单ID' })
+export default class CreateFormFieldDto {
+  @ApiHideProperty()
   FormId: number;
 
   @ApiProperty({ description: '字段名称' })

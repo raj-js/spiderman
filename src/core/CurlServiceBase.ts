@@ -1,12 +1,10 @@
-import { Repository } from 'typeorm';
-import Paged from './infrastructure/Paged';
-import Pager from './infrastructure/Pager';
+import { Repository, getConnection, getManager } from 'typeorm';
+import { Pager, Paged } from './infrastructure/Paging';
 
-export default abstract class CurlServiceBase<
+export abstract class CURServiceBase<
   TEntityKey,
   TEntity,
   TOutput,
-  TQueryInput extends Pager<TEntity> & { Where: any; Select: any },
   TCreateInput,
   TUpdateInput extends { Id: TEntityKey }
 > {
@@ -23,6 +21,14 @@ export default abstract class CurlServiceBase<
     entity = await this.repository.save(entity, { reload: true });
     let dto = {} as TOutput;
     return Object.assign(dto, entity);
+  }
+  async CreateOrUpdateMultiple(reqDtos: TCreateInput[]): Promise<TOutput[]> {
+    let entities = reqDtos.map((v) => Object.assign({} as TEntity, v));
+    entities = await this.repository.save(entities, {
+      reload: true,
+      transaction: true,
+    });
+    return entities.map((v) => Object.assign({} as TOutput, v));
   }
   async Delete(id: TEntityKey, soft: boolean = false): Promise<boolean> {
     if (soft) {
@@ -44,6 +50,26 @@ export default abstract class CurlServiceBase<
     const result = await this.repository.update(reqDto.Id, entity);
     return result.affected > 0;
   }
+}
+
+export abstract class CURLServiceBase<
+  TEntityKey,
+  TEntity,
+  TOutput,
+  TQueryInput extends Pager<TEntity> & { Where: any; Select: any },
+  TCreateInput,
+  TUpdateInput extends { Id: TEntityKey }
+> extends CURServiceBase<
+  TEntityKey,
+  TEntity,
+  TOutput,
+  TCreateInput,
+  TUpdateInput
+> {
+  constructor(protected readonly repository: Repository<TEntity>) {
+    super(repository);
+  }
+
   async Paging(query: TQueryInput): Promise<Paged<TOutput>> {
     const [rows, count] = await this.repository.findAndCount({
       order: query.Order,

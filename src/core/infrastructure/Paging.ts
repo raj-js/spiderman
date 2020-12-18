@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export default class Pager<TEntity> {
+export class Pager<TEntity> {
   @ApiProperty({ description: '跳过前多少条' })
   Skip: number;
 
@@ -15,4 +15,19 @@ export default class Pager<TEntity> {
   Order: {
     [P in keyof TEntity]?: 'ASC' | 'DESC';
   };
+}
+
+export class Paged<T> {
+  @ApiProperty({ description: '数据' })
+  Data: T[];
+
+  @ApiProperty({ description: '总数' })
+  Total: number;
+
+  public static From<T>([Data, Count]: [T[], number]): Paged<T> {
+    return {
+      Data: Data,
+      Total: Count,
+    };
+  }
 }

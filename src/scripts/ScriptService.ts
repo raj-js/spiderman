@@ -6,10 +6,10 @@ import UpdateScriptDto from './dto/UpdateScriptDto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import QueryScriptDto from './dto/QueryScriptDto';
-import CurlServiceBase from 'src/core/CurlServiceBase';
+import { CURLServiceBase } from 'src/core/CURLServiceBase';
 
 @Injectable()
-export default class ScriptService extends CurlServiceBase<
+export default class ScriptService extends CURLServiceBase<
   number,
   Script,
   ScriptDto,

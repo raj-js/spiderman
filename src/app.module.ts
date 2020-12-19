@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ormModule } from './core/typeorm.module';
 import FormModule from './forms/form.module';
 import { ScriptModule } from './scripts/script.module';
+import TaskModule from './tasks/task.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { ScriptModule } from './scripts/script.module';
     ormModule,
     ScriptModule,
     FormModule,
+    TaskModule,
   ],
   controllers: [],
   providers: [],

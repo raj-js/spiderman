@@ -17,15 +17,15 @@ import {
 } from 'src/core/infrastructure/ApiResponse';
 import { Paged } from 'src/core/infrastructure/Paging';
 import { Like, Equal } from 'typeorm';
-import CreateFormDto from './dto/CreateFormDto';
-import CreateFormFieldsDto from './dto/CreateFormFieldsDto';
-import FormDto from './dto/FormDto';
-import FormFieldDto from './dto/FormFieldDto';
-import QueryFormDto from './dto/QueryFormDto';
-import UpdateFormDto from './dto/UpdateFormDto';
-import UpdateFormFieldsDto from './dto/UpdateFormFieldsDto';
-import FormFieldService from './FormFieldService';
-import FormService from './FormService';
+import CreateFormDto from './dto/create-form.dto';
+import CreateFormFieldsDto from './dto/create-form-fields.dto';
+import FormDto from './dto/form.dto';
+import FormFieldDto from './dto/form-field.dto';
+import QueryFormDto from './dto/query-form.dto';
+import UpdateFormDto from './dto/update-form.dto';
+import UpdateFormFieldsDto from './dto/update-form-fields.dto';
+import FormFieldService from './form-field.service';
+import FormService from './form.service';
 
 @ApiTags('表单')
 @Controller('form')

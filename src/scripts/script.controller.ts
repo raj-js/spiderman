@@ -20,11 +20,11 @@ import {
   SuccessOrFailed,
   SuccessOrNotFound,
 } from 'src/core/infrastructure/ApiResponse';
-import ScriptService from './ScriptService';
-import CreateScriptDto from './dto/CreateScriptDto';
-import ScriptDto from './dto/ScriptDto';
-import UpdateScriptDto from './dto/UpdateScriptDto';
-import QueryScriptDto from './dto/QueryScriptDto';
+import ScriptService from './script.service';
+import CreateScriptDto from './dto/create-script.dto';
+import ScriptDto from './dto/script.dto';
+import UpdateScriptDto from './dto/update-script.dto';
+import QueryScriptDto from './dto/query-script.dto';
 import { Equal, Like } from 'typeorm';
 import { Paged } from 'src/core/infrastructure/Paging';
 

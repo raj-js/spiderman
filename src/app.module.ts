@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { ormModule } from './core/TypeormModule';
-import FormModule from './forms/FormModule';
-import { ScriptModule } from './scripts/ScriptModule';
+import { ormModule } from './core/typeorm.module';
+import FormModule from './forms/form.module';
+import { ScriptModule } from './scripts/script.module';
 
 @Module({
   imports: [

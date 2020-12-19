@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import CreateFormFieldDto from './CreateFormFieldDto';
+import CreateFormFieldDto from './create-form-field.dto';
 
 export default class CreateFormFieldsDto {
   @ApiProperty({ description: '表单ID' })

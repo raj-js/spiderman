@@ -2,11 +2,11 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CURServiceBase } from 'src/core/CURLServiceBase';
 import { Form, FormField } from 'src/core/entities';
 import { Repository } from 'typeorm';
-import CreateFormFieldDto from './dto/CreateFormFieldDto';
-import CreateFormFieldsDto from './dto/CreateFormFieldsDto';
-import FormFieldDto from './dto/FormFieldDto';
-import UpdateFormFieldDto from './dto/UpdateFormFieldDto';
-import UpdateFormFieldsDto from './dto/UpdateFormFieldsDto';
+import CreateFormFieldDto from './dto/create-form-field.dto';
+import CreateFormFieldsDto from './dto/create-form-fields.dto';
+import FormFieldDto from './dto/form-field.dto';
+import UpdateFormFieldDto from './dto/update-form-field.dto';
+import UpdateFormFieldsDto from './dto/update-form-fields.dto';
 
 export default class FormFieldService extends CURServiceBase<
   number,

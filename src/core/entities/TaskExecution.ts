@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { TaskExecutionStatus } from './TaskExecutionStatus';
 
 @Entity()
 export default class TaskExecution {
@@ -11,5 +12,5 @@ export default class TaskExecution {
   @Column({ length: 32 })
   Cron: string;
   @Column()
-  Status: 'Ready' | 'Running' | 'Error' | 'Stopped';
+  Status: TaskExecutionStatus;
 }

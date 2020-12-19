@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { FormFieldType } from '../infrastructure/FormFieldType';
+import { FormFieldType } from './FormFieldType';
 
 @Entity()
 export default class FormField {

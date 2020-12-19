@@ -1,3 +1,4 @@
+import { LogLevel } from '@nestjs/common';
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
@@ -7,7 +8,7 @@ export default class TaskExecutionLog {
   @Column()
   ExecutionId: number;
   @Column()
-  Level: 'Info' | 'Debug' | 'Error';
+  Level: LogLevel;
   @Column('text')
   Content: string;
   @Column()

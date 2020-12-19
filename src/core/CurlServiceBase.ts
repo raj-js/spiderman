@@ -12,6 +12,8 @@ export abstract class CURServiceBase<
 
   async Get(id: TEntityKey): Promise<TOutput> {
     let entity = await this.repository.findOne(id);
+    if (!entity) return null;
+
     let dto = {} as TOutput;
     return Object.assign(dto, entity);
   }
@@ -33,13 +35,11 @@ export abstract class CURServiceBase<
   async Delete(id: TEntityKey, soft: boolean = false): Promise<boolean> {
     if (soft) {
       const entity = await this.Get(id);
-      if ('IsDeleted' in entity) {
-        entity['IsDeleted'] = true;
-        const result = await this.repository.update(id, entity);
-        return result.affected > 0;
-      } else {
-        throw new Error(`对象 ${entity} 无法被软删除`);
-      }
+      if (!entity || !('IsDeleted' in entity)) return false;
+
+      entity['IsDeleted'] = true;
+      const result = await this.repository.update(id, entity);
+      return result.affected > 0;
     }
     const result = await this.repository.delete(id);
     return result.affected > 0;

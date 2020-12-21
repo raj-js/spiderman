@@ -7,19 +7,19 @@ import {
 } from 'src/core/entities';
 import { getManager, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import CreateTaskExecutionDto from './dto/create-task-execution.dto';
-import TaskExecutionDto from './dto/task-execution.dto';
 import { TaskExecutionStatus } from 'src/core/entities/TaskExecutionStatus';
-import UpdateTaskExecutionDto from './dto/update-task-execution.dto';
 import { CURLServiceBase } from 'src/core/CURLServiceBase';
-import QueryTaskExecutionDto from './dto/query-task-execution.dto';
 import { Injectable } from '@nestjs/common';
-import TaskExecutionInputDto from './dto/task-execution-input.dto';
-import TaskExecutionOutputDto from './dto/task-execution-output.dto';
-import TaskExecutionLogDto from './dto/task-execution-log.dto';
+import { CreateTaskExecutionDto } from './dto/create-task-execution.dto';
+import { QueryTaskExecutionDto } from './dto/query-task-execution.dto';
+import { TaskExecutionInputDto } from './dto/task-execution-input.dto';
+import { TaskExecutionLogDto } from './dto/task-execution-log.dto';
+import { TaskExecutionOutputDto } from './dto/task-execution-output.dto';
+import { TaskExecutionDto } from './dto/task-execution.dto';
+import { UpdateTaskExecutionDto } from './dto/update-task-execution.dto';
 
 @Injectable()
-export default class TaskExecutionService extends CURLServiceBase<
+export class TaskExecutionService extends CURLServiceBase<
   number,
   TaskExecution,
   TaskExecutionDto,

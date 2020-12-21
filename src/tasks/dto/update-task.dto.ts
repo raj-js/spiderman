@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import UpdateDtoBase from 'src/core/infrastructure/UpdateDtoBase';
+import { UpdateDtoBase } from 'src/core/infrastructure/UpdateDtoBase';
 
-export default class UpdateTaskDto extends UpdateDtoBase<number> {
+export class UpdateTaskDto extends UpdateDtoBase<number> {
   @ApiProperty({ description: '任务名称' })
   Name: string;
 

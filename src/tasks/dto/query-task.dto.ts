@@ -1,8 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Task } from 'src/core/entities';
-import QueryDtoBase from 'src/core/infrastructure/QueryDtoBase';
+import { QueryDtoBase } from 'src/core/infrastructure/QueryDtoBase';
 
-export default class QueryTaskDto extends QueryDtoBase<Task> {
+export class QueryTaskDto extends QueryDtoBase<Task> {
   @ApiProperty({ description: '是否已经删除', required: false })
   IsDeleted: boolean | null;
 

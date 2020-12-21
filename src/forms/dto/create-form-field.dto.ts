@@ -1,7 +1,7 @@
 import { ApiHideProperty, ApiProperty } from '@nestjs/swagger';
 import { FormFieldType } from 'src/core/entities/FormFieldType';
 
-export default class CreateFormFieldDto {
+export class CreateFormFieldDto {
   @ApiHideProperty()
   FormId: number;
 

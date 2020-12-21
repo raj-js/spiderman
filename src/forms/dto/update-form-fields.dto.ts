@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import UpdateFormFieldDto from './update-form-field.dto';
+import { UpdateFormFieldDto } from './update-form-field.dto';
 
-export default class UpdateFormFieldsDto {
+export class UpdateFormFieldsDto {
   @ApiProperty({
     description: '字段',
     isArray: true,

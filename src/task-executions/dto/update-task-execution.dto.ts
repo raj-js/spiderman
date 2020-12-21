@@ -1,8 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { TaskExecutionStatus } from 'src/core/entities/TaskExecutionStatus';
-import UpdateDtoBase from 'src/core/infrastructure/UpdateDtoBase';
+import { UpdateDtoBase } from 'src/core/infrastructure/UpdateDtoBase';
 
-export default class UpdateTaskExecutionDto extends UpdateDtoBase<number> {
+export class UpdateTaskExecutionDto extends UpdateDtoBase<number> {
   @ApiProperty({ description: '执行记录ID' })
   Id: number;
 

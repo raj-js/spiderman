@@ -22,15 +22,15 @@ import {
 } from 'src/core/infrastructure/ApiResponse';
 import { Paged } from 'src/core/infrastructure/Paging';
 import { Like, Equal } from 'typeorm';
-import CreateTaskDto from './dto/create-task.dto';
-import QueryTaskDto from './dto/query-task.dto';
-import TaskDto from './dto/task.dto';
-import UpdateTaskDto from './dto/update-task.dto';
-import TaskService from './task.service';
+import { CreateTaskDto } from './dto/create-task.dto';
+import { QueryTaskDto } from './dto/query-task.dto';
+import { TaskDto } from './dto/task.dto';
+import { UpdateTaskDto } from './dto/update-task.dto';
+import { TaskService } from './task.service';
 
 @ApiTags('任务')
 @Controller('task')
-export default class TaskController {
+export class TaskController {
   constructor(private readonly taskService: TaskService) {}
 
   @ApiOperation({ summary: '创建任务' })

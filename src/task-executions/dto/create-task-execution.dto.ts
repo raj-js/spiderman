@@ -1,8 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { TaskExecution } from 'src/core/entities';
-import CreateTaskExecutionInputDto from './create-task-execution-input.dto';
+import { CreateTaskExecutionInputDto } from './create-task-execution-input.dto';
 
-export default class CreateTaskExecutionDto {
+export class CreateTaskExecutionDto {
   @ApiProperty({ description: '任务ID' })
   TaskId: number;
 

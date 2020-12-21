@@ -7,8 +7,8 @@ import {
   TaskExecutionLog,
   TaskExecutionOutput,
 } from 'src/core/entities';
-import TaskExecutionController from './task-execution.controller';
-import TaskExecutionService from './task-execution.service';
+import { TaskExecutionController } from './task-execution.controller';
+import { TaskExecutionService } from './task-execution.service';
 
 @Module({
   imports: [
@@ -24,4 +24,4 @@ import TaskExecutionService from './task-execution.service';
   controllers: [TaskExecutionController],
   exports: [TypeOrmModule],
 })
-export default class TaskExecutionModule {}
+export class TaskExecutionModule {}

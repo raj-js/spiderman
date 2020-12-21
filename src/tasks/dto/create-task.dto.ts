@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export default class CreateTaskDto {
+export class CreateTaskDto {
   @ApiProperty({ description: '任务名称' })
   Name: string;
 

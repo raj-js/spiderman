@@ -7,11 +7,11 @@ import {
   TaskExecutionOutput,
 } from 'src/core/entities';
 import { TaskExecutionStatus } from 'src/core/entities/TaskExecutionStatus';
-import TaskExecutionInputDto from './task-execution-input.dto';
-import TaskExecutionLogDto from './task-execution-log.dto';
-import TaskExecutionOutputDto from './task-execution-output.dto';
+import { TaskExecutionInputDto } from './task-execution-input.dto';
+import { TaskExecutionLogDto } from './task-execution-log.dto';
+import { TaskExecutionOutputDto } from './task-execution-output.dto';
 
-export default class TaskExecutionDto {
+export class TaskExecutionDto {
   @ApiProperty({ description: '执行记录ID' })
   Id: number;
 

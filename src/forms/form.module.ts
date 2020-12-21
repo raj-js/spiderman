@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Form, FormField } from 'src/core/entities';
-import FormController from './form.controller';
-import FormFieldService from './form-field.service';
-import FormService from './form.service';
+import { FormFieldService } from './form-field.service';
+import { FormController } from './form.controller';
+import { FormService } from './form.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Form, FormField])],
@@ -11,4 +11,4 @@ import FormService from './form.service';
   controllers: [FormController],
   exports: [TypeOrmModule],
 })
-export default class FormModule {}
+export class FormModule {}

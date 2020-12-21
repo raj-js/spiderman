@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export default class CreateScriptDto {
+export class CreateScriptDto {
   @ApiProperty({ description: '名称' })
   Name: string;
 

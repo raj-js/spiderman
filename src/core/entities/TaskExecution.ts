@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { TaskExecutionStatus } from './TaskExecutionStatus';
 
 @Entity()
-export default class TaskExecution {
+export class TaskExecution {
   @PrimaryGeneratedColumn()
   Id: number;
   @Column()

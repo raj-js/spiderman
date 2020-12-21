@@ -17,19 +17,19 @@ import {
 } from 'src/core/infrastructure/ApiResponse';
 import { Paged } from 'src/core/infrastructure/Paging';
 import { Like, Equal } from 'typeorm';
-import CreateFormDto from './dto/create-form.dto';
-import CreateFormFieldsDto from './dto/create-form-fields.dto';
-import FormDto from './dto/form.dto';
-import FormFieldDto from './dto/form-field.dto';
-import QueryFormDto from './dto/query-form.dto';
-import UpdateFormDto from './dto/update-form.dto';
-import UpdateFormFieldsDto from './dto/update-form-fields.dto';
-import FormFieldService from './form-field.service';
-import FormService from './form.service';
+import { CreateFormFieldsDto } from './dto/create-form-fields.dto';
+import { CreateFormDto } from './dto/create-form.dto';
+import { FormFieldDto } from './dto/form-field.dto';
+import { FormDto } from './dto/form.dto';
+import { QueryFormDto } from './dto/query-form.dto';
+import { UpdateFormFieldsDto } from './dto/update-form-fields.dto';
+import { UpdateFormDto } from './dto/update-form.dto';
+import { FormFieldService } from './form-field.service';
+import { FormService } from './form.service';
 
 @ApiTags('表单')
 @Controller('form')
-export default class FormController {
+export class FormController {
   constructor(
     private readonly formService: FormService,
     private readonly formFieldService: FormFieldService,

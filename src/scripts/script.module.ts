@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Script } from 'src/core/entities';
-import ScriptService from './script.service';
-import ScriptController from './script.controller';
+import { ScriptController } from './script.controller';
+import { ScriptService } from './script.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Script])],

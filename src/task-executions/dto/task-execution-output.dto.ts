@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { TaskExecutionOutput } from 'src/core/entities';
 
-export default class TaskExecutionOutputDto {
+export class TaskExecutionOutputDto {
   @ApiProperty({ description: '执行记录ID' })
   ExecutionId: number;
   @ApiProperty({ description: '内容MIME类型' })

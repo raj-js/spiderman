@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export default class CreateFormDto {
+export class CreateFormDto {
   @ApiProperty({ description: '名称' })
   Name: string;
 

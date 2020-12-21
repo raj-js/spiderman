@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
-export default class Script {
+export class Script {
   @PrimaryGeneratedColumn()
   Id: number;
 

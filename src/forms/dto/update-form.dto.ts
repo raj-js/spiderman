@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export default class UpdateFormDto {
+export class UpdateFormDto {
   @ApiProperty({ description: '表单ID' })
   Id: number;
 

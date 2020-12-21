@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { FormFieldType } from 'src/core/entities/FormFieldType';
 
-export default class UpdateFormFieldDto {
+export class UpdateFormFieldDto {
   @ApiProperty({ description: '字段ID' })
   Id: number;
 

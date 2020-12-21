@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export default class UpdateScriptDto {
+export class UpdateScriptDto {
   @ApiProperty({ description: 'ID' })
   Id: number;
 

@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
-export default class TaskExecutionOutput {
+export class TaskExecutionOutput {
   @PrimaryGeneratedColumn()
   Id: number;
   @Column()

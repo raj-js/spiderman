@@ -2,7 +2,7 @@ import { ApiHideProperty, ApiProperty } from '@nestjs/swagger';
 import { Script } from 'src/core/entities';
 import { Pager } from 'src/core/infrastructure/Paging';
 
-export default class QueryScriptDto extends Pager<Script> {
+export class QueryScriptDto extends Pager<Script> {
   constructor() {
     super();
     this.Order = {

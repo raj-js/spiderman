@@ -20,17 +20,17 @@ import {
   SuccessOrFailed,
   SuccessOrNotFound,
 } from 'src/core/infrastructure/ApiResponse';
-import ScriptService from './script.service';
-import CreateScriptDto from './dto/create-script.dto';
-import ScriptDto from './dto/script.dto';
-import UpdateScriptDto from './dto/update-script.dto';
-import QueryScriptDto from './dto/query-script.dto';
 import { Equal, Like } from 'typeorm';
 import { Paged } from 'src/core/infrastructure/Paging';
+import { CreateScriptDto } from './dto/create-script.dto';
+import { QueryScriptDto } from './dto/query-script.dto';
+import { ScriptDto } from './dto/script.dto';
+import { UpdateScriptDto } from './dto/update-script.dto';
+import { ScriptService } from './script.service';
 
 @ApiTags('脚本')
 @Controller('script')
-export default class ScriptController {
+export class ScriptController {
   constructor(private readonly scriptService: ScriptService) {}
 
   @ApiOperation({ summary: '创建脚本' })

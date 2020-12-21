@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { FormField, TaskExecutionInput } from 'src/core/entities';
 
-export default class TaskExecutionInputDto {
+export class TaskExecutionInputDto {
   @ApiProperty({ description: '执行记录ID' })
   ExecutionId: number;
 

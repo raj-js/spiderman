@@ -1,13 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Put,
-  Query,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import {
   ApiOkResponse,
   ApiOperation,
@@ -21,22 +12,18 @@ import {
   SuccessOrNotFound,
 } from 'src/core/infrastructure/ApiResponse';
 import { Paged } from 'src/core/infrastructure/Paging';
-import CreateTaskDto from 'src/tasks/dto/create-task.dto';
-import QueryTaskDto from 'src/tasks/dto/query-task.dto';
-import TaskDto from 'src/tasks/dto/task.dto';
-import UpdateTaskDto from 'src/tasks/dto/update-task.dto';
 import { Like, Equal } from 'typeorm';
-import CreateTaskExecutionDto from './dto/create-task-execution.dto';
-import QueryTaskExecutionDto from './dto/query-task-execution.dto';
-import TaskExecutionInputDto from './dto/task-execution-input.dto';
-import TaskExecutionLogDto from './dto/task-execution-log.dto';
-import TaskExecutionOutputDto from './dto/task-execution-output.dto';
-import TaskExecutionDto from './dto/task-execution.dto';
-import TaskExecutionService from './task-execution.service';
+import { CreateTaskExecutionDto } from './dto/create-task-execution.dto';
+import { QueryTaskExecutionDto } from './dto/query-task-execution.dto';
+import { TaskExecutionInputDto } from './dto/task-execution-input.dto';
+import { TaskExecutionLogDto } from './dto/task-execution-log.dto';
+import { TaskExecutionOutputDto } from './dto/task-execution-output.dto';
+import { TaskExecutionDto } from './dto/task-execution.dto';
+import { TaskExecutionService } from './task-execution.service';
 
 @ApiTags('执行任务')
 @Controller('execution')
-export default class TaskExecutionController {
+export class TaskExecutionController {
   constructor(private executionService: TaskExecutionService) {}
 
   @ApiOperation({ summary: '创建执行任务' })

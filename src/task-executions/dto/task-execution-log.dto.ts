@@ -2,7 +2,7 @@ import { LogLevel } from '@nestjs/common';
 import { ApiProperty } from '@nestjs/swagger';
 import { TaskExecutionLog } from 'src/core/entities';
 
-export default class TaskExecutionLogDto {
+export class TaskExecutionLogDto {
   @ApiProperty({ description: '执行记录ID' })
   ExecutionId: number;
 
